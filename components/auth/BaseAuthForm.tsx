@@ -10,7 +10,6 @@ interface BaseAuthFormProps<T extends z.ZodType> {
   schema: T;
   onSubmit: (values: z.infer<T>) => Promise<void>;
   children: React.ReactNode;
-  submitText: string;
   defaultValues?: Partial<z.infer<T>>;
 }
 
@@ -18,12 +17,12 @@ export function BaseAuthForm<T extends z.ZodType>({
   schema,
   onSubmit,
   children,
-  submitText,
   defaultValues,
 }: BaseAuthFormProps<T>) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const form = useForm<z.infer<T>>({
+    // @ts-expect-error - Known type mismatch between zod and @hookform/resolvers/zod
     resolver: zodResolver(schema),
     defaultValues: defaultValues as z.infer<T>,
   });
@@ -48,7 +47,7 @@ export function BaseAuthForm<T extends z.ZodType>({
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
         {children}
         <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? 'Loading...' : submitText}
+          {isLoading ? 'Loading...' : 'Submit'}
         </Button>
       </form>
     </Form>
