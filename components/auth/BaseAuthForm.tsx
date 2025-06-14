@@ -23,7 +23,6 @@ export function BaseAuthForm<T extends z.ZodType>({
 }: BaseAuthFormProps<T>) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-
   const form = useForm<z.infer<T>>({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as z.infer<T>,

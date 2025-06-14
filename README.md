@@ -2,6 +2,11 @@
 
 A simple web application to track your daily meals and calorie intake. Built with Next.js and TypeScript.
 
+![Meal Calorie Counter Screenshot](/public/images/meal-calorie-login.png)
+![Meal Calorie Counter Screenshot](/public/images/meal-calorie-register.png)
+![Meal Calorie Counter Screenshot](/public/images/meal-calorie-dashboard.png)
+![Meal Calorie Counter Screenshot](/public/images/meal-calorie-count.png)
+
 ## Features
 
 - User authentication

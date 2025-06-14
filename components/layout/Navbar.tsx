@@ -47,26 +47,37 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             {user ? (
-              <Button variant="outline" onClick={logout}>
+              <Button 
+                variant="outline" 
+                onClick={logout}
+                className="h-9 px-4"
+              >
                 Logout
               </Button>
             ) : (
-              <>
+              <div className="flex items-center gap-2">
                 <Link href="/login">
-                  <Button variant="ghost" className={cn(
-                    isActive('/login') && "bg-muted"
-                  )}>
+                  <Button 
+                    variant="ghost" 
+                    className={cn(
+                      "h-9 px-4",
+                      isActive('/login') && "bg-muted"
+                    )}
+                  >
                     Login
                   </Button>
                 </Link>
                 <Link href="/register">
-                  <Button className={cn(
-                    isActive('/register') && "bg-muted"
-                  )}>
+                  <Button 
+                    className={cn(
+                      "h-9 px-4",
+                      isActive('/register') && "bg-muted"
+                    )}
+                  >
                     Register
                   </Button>
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </div>
